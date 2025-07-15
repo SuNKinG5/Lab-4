@@ -1,65 +1,33 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
-import org.junit.jupiter.api.Test;
 import sqa.main.Ranking;
 
 class normal {
 
 	Ranking rank = new Ranking();
 	
-	@Test
-	void T1() {
-		assertEquals("Standard", rank.CalculateMembershipRank(0, 16, 500));
+	@ParameterizedTest
+	@CsvSource({
+		"0,      3, 500,  Standard",
+		"1,      3, 500,  Standard",
+		"99999,  3, 500,  Gold",
+		"100000, 3, 500,  Gold",
+		"50000,  0, 500,  Standard",
+		"50000,  1, 500,  Silver",
+		"50000,  3, 500,  Gold",
+		"50000,  6, 500,  Gold",
+		"50000,  7, 500,  Gold",
+		"50000,  3, 0,    Standard",
+		"50000,  3, 1,    Standard",
+		"50000,  3, 999,  Gold",
+		"50000,  3, 1000, Gold",
+	})
+	void T1(int total, int freq, int point, String expect) {
+		assertEquals(expect, rank.CalculateMembershipRank(total, freq, point));
 	}
-	@Test
-	void T2() {
-		assertEquals("Standard", rank.CalculateMembershipRank(0, 16, 500));
-	}
-	@Test
-	void T3() {
-		assertEquals("Standard", rank.CalculateMembershipRank(0, 16, 500));
-	}
-	@Test
-	void T4() {
-		assertEquals("Standard", rank.CalculateMembershipRank(0, 16, 500));
-	}
-	@Test
-	void T5() {
-		assertEquals("Standard", rank.CalculateMembershipRank(0, 16, 500));
-	}
-	@Test
-	void T6() {
-		assertEquals("Standard", rank.CalculateMembershipRank(0, 16, 500));
-	}
-	@Test
-	void T7() {
-		assertEquals("Standard", rank.CalculateMembershipRank(0, 16, 500));
-	}
-	@Test
-	void T8() {
-		assertEquals("Standard", rank.CalculateMembershipRank(0, 16, 500));
-	}
-	@Test
-	void T9() {
-		assertEquals("Standard", rank.CalculateMembershipRank(0, 16, 500));
-	}
-	@Test
-	void T10() {
-		assertEquals("Standard", rank.CalculateMembershipRank(0, 16, 500));
-	}
-	@Test
-	void T11() {
-		assertEquals("Standard", rank.CalculateMembershipRank(0, 16, 500));
-	}
-	@Test
-	void T12() {
-		assertEquals("Standard", rank.CalculateMembershipRank(0, 16, 500));
-	}
-	@Test
-	void T13() {
-		assertEquals("Standard", rank.CalculateMembershipRank(0, 16, 500));
-	}
+
 }
