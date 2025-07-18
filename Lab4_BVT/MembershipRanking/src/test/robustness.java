@@ -1,3 +1,6 @@
+//lab 1.2
+//นายตะวัน อุตมาน 663380210-2
+
 package test;
 
 import static org.junit.Assert.assertEquals;
