@@ -15,19 +15,19 @@ class normal {
 	
 	@ParameterizedTest
 	@CsvSource({
-		"0,      3, 500,  Standard",
-		"1,      3, 500,  Standard",
-		"99999,  3, 500,  Gold",
-		"100000, 3, 500,  Gold",
-		"50000,  0, 500,  Standard",
-		"50000,  1, 500,  Silver",
-		"50000,  3, 500,  Gold",
-		"50000,  6, 500,  Gold",
-		"50000,  7, 500,  Gold",
-		"50000,  3, 0,    Standard",
-		"50000,  3, 1,    Standard",
-		"50000,  3, 999,  Gold",
-		"50000,  3, 1000, Gold",
+		"0,      15, 500,  Standard",
+		"1,      15, 500,  Standard",
+		"99999,  15, 500,  Standard",
+		"100000, 15, 500,  Standard",
+		"50000,  0,  500,  Standard",
+		"50000,  1,  500,  Standard",
+		"50000,  15, 500,  Standard",
+		"50000,  29,  500,  Standard",
+		"50000,  30,  500,  Standard",
+		"50000,  15, 0,    Standard",
+		"50000,  15, 1,    Standard",
+		"50000,  15, 999,  Standard",
+		"50000,  15, 1000, Standard",
 	})
 	void T1(int total, int freq, int point, String expect) {
 		assertEquals(expect, rank.CalculateMembershipRank(total, freq, point));
